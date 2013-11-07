@@ -1,6 +1,9 @@
 # -*- encoding : utf-8 -*-
 require 'redmine'
 
+require 'oauth/rack/oauth_filter'
+Rails.application.config.middleware.use OAuth::Rack::OAuthFilter
+
 # Patches to the Redmine core.
 Rails.configuration.to_prepare do
   require_dependency 'project'
